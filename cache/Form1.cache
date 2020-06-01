@@ -1,0 +1,39 @@
+
+Hamburger1.onclick = function(s) {
+    if (typeof(s) == "object") {
+        return;
+    }
+    if (s === "Home") {
+        // switch the view to Home
+        ChangeForm(Form1, "fade");
+    }
+    if (s === "My Details") {
+        // switch the view to Form2
+        ChangeForm(Form2, "fade");
+    }
+    if (s === "Map") {
+        ChangeForm(MapForm, "fade");
+    }
+    if (s === "Randomiser") {
+        ChangeForm(Randomiser, "fade");
+    }
+    if (s === "Roll Dice") {
+        ChangeForm(RollDice, "fade");
+    }
+};
+
+NSBPage.appendChild(HeaderGlobal)
+
+//TextInputName.onkeyup=function(){
+//    LabelName.innerHTML = TextInputName.value;
+//}
+
+ButtonSave.onclick=function(){
+  //LabelResults.innerHTML = TextInputName.value + "<br />" + Textarea1.value;
+  var myDetails = TextInputName.value + "<br />" + Textarea1.value;
+  localStorage.savedDetails = myDetails;
+  console.log(localStorage);
+  //LabelName.innerHTML = "Saved!";
+  $("#Toast2").toast("show");
+  Form1.reset();
+}
